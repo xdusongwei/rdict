@@ -36,7 +36,7 @@ class KeyObject:
     def as_list(self):
         return self._redis.lrange(self._key, 0, -1)
 
-    def as_string(self, default=None):
+    def as_value(self, default=None):
         v = self._redis.get(self._key)
         return pickle.loads(v) if v is not None else default
 
